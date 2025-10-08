@@ -1,0 +1,161 @@
+/* Vibrant & Adventurous Profile Page Stylesheet
+   Primary Color (Teal): #00BCD4
+   Secondary Color (Coral): #FF7B54
+   Neutral Colors: #f8f9fa (light gray), #ffffff (white), #333333 (dark charcoal)
+*/
+
+/* General Body & Font Styles */
+body {
+    font-family: 'Poppins', sans-serif; /* A clean, modern font */
+    /* Updated background with a subtle gradient */
+    background: linear-gradient(135deg, #e0f7fa 0%, #fff8e1 100%);
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Add a Google Font link in your HTML <head> for Poppins:
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"> 
+*/
+
+.container {
+    max-width: 1140px;
+    margin: auto;
+    padding: 0 15px; /* Add padding for small screens */
+}
+
+/* Layout Grid */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -15px; /* Gutter compensation */
+}
+
+.col-md-4, .col-md-8 {
+    width: 100%; /* Mobile first: full width by default */
+    padding: 0 15px; /* Gutters */
+    box-sizing: border-box;
+}
+
+/* On medium screens and up (>= 768px), create the two-column layout */
+@media (min-width: 768px) {
+    .col-md-4 {
+        flex: 0 0 33.3333%;
+        max-width: 33.3333%;
+    }
+    .col-md-8 {
+        flex: 0 0 66.6667%;
+        max-width: 66.6667%;
+    }
+}
+
+/* Card Styling - Applied to all card elements */
+.card, .card_text-center {
+    background-color: #ffffff;
+    border: none;
+    border-radius: 15px; /* Softer, rounded corners */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Subtle shadow for depth */
+    margin-bottom: 24px; /* Consistent spacing between cards */
+    overflow: hidden; /* Ensures content respects the border-radius */
+    transition: all 0.3s ease-in-out;
+}
+
+.card:hover, .card_text-center:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+    background-color: #f1f1f1;
+    font-weight: 600;
+    color: #00A9A3; /* Teal accent for headers */
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.card-body {
+    padding: 2rem;
+}
+
+/* Left Column - Profile Card */
+.card_text-center {
+    padding: 2rem;
+    text-align: center;
+}
+
+.card_text-center .card-img-top {
+    border: 5px solid #ffffff;
+    box-shadow: 0 0 15px rgba(0, 188, 212, 0.4);
+}
+
+.card_text-center h4 {
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+.card_text-center p {
+    color: #6c757d;
+    margin-bottom: 1rem;
+}
+
+/* Right Column - Info, Trips, Reviews Cards */
+.col-md-8 p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.col-md-8 p b {
+    color: #333;
+    min-width: 120px;
+    display: inline-block; /* Aligns the text nicely */
+}
+
+/* Button Styles */
+.btn {
+    border-radius: 50px; /* Pill-shaped buttons */
+    padding: 10px 25px;
+    font-weight: 600;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    margin: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-primary {
+    background-color: #00BCD4; /* Primary Teal */
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #00A9A3; /* Darker teal on hover */
+    transform: scale(1.05);
+}
+
+.btn-outline-primary {
+    background-color: transparent;
+    color: #00BCD4;
+    border-color: #00BCD4;
+}
+
+.btn-outline-primary:hover {
+    background-color: #00BCD4;
+    color: white;
+    transform: scale(1.05);
+}
+
+.btn-warning {
+    background-color: #FF7B54; /* Secondary Coral */
+    color: white;
+}
+
+.btn-warning:hover {
+    background-color: #F4511E; /* Darker coral on hover */
+    transform: scale(1.05);
+}
+
+

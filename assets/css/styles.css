@@ -1,0 +1,644 @@
+/* CSS Color Variables */
+:root {
+    --bistre: #391F15ff;
+    --hunyadi-yellow: #F0B551ff;
+    --black-olive: #353936ff;
+    --seasalt: #F8F8F8ff;
+    --caribbean-current: #2D6265ff;
+    --raw-umber: #90654Fff;
+    --verdigris: #15AEAEff;
+    --teal: #0D8589ff;
+    --antiflash-white: #EAECECff;
+    --white: #FEFEFEff;
+}
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--black-olive);
+    min-height: 100vh;
+    /* Travel companion vibe: fresh teal ocean tones with warm sunshine highlights */
+    background-color: var(--antiflash-white);
+    background-image:
+        /* soft diagonal teal wash */
+        linear-gradient(135deg, rgba(21, 174, 174, 0.08) 0%, rgba(13, 133, 137, 0.12) 40%, rgba(254, 254, 254, 0.0) 60%),
+        /* sun glow circle */
+        radial-gradient(600px 400px at 78% 12%, rgba(240, 181, 81, 0.18) 0%, rgba(240, 181, 81, 0.0) 60%),
+        /* subtle dotted grid like map */
+        radial-gradient(circle at 25px 25px, rgba(53, 57, 54, 0.06) 1px, rgba(0,0,0,0) 1px);
+    background-size: 100% 100%, 100% 100%, 40px 40px;
+}
+
+
+/* Header Styles */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background: var(--white);
+    border-bottom: 1px solid var(--seasalt);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--black-olive);
+    position: relative;
+}
+
+.logo-icon {
+    margin-right: 10px;
+    position: relative;
+    display: inline-block;
+}
+
+.logo-icon i {
+    color: var(--verdigris);
+    font-size: 28px;
+    position: relative;
+    z-index: 3;
+}
+
+.logo-icon::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 50px;
+    border: 2px solid var(--hunyadi-yellow);
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.logo-icon::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    border: 2px solid var(--verdigris);
+    border-radius: 50%;
+    z-index: 2;
+}
+
+.nav {
+    display: flex;
+    gap: 30px;
+}
+
+.nav a {
+    text-decoration: none;
+    color: var(--verdigris);
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav a:hover {
+    color: var(--teal);
+}
+
+/* Header auth buttons */
+.auth-actions {
+    display: flex;
+    gap: 12px;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 38px;
+    padding: 0 16px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    border: 1px solid transparent;
+}
+.profile-link{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 38px;
+    padding: 0 16px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    border: 1px solid transparent;
+}
+.profile-link:hover{
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
+}
+.btn-outline {
+    color: var(--verdigris);
+    border-color: var(--verdigris);
+    background: transparent;
+}
+/* .btn-outline .profile-pic {
+    margin-right: 8px;
+    font-size: 18px;
+    height: 2px;
+    width: 2px;
+} */
+.btn-outline:hover {
+    color: var(--white);
+    background: var(--verdigris);
+}
+
+.btn-solid {
+    color: var(--white);
+    background: var(--verdigris);
+}
+
+.btn-solid:hover {
+    background: var(--teal);
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    height: 460px;
+    overflow: hidden;
+    margin: 0;
+    background: var(--white);
+}
+
+.hero-images {
+    display: flex;
+    height: 100%;
+    gap: 0;
+    position: relative;
+    transform: skewX(-9deg);
+}
+
+.hero-image {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    margin: 0 12px;
+    
+    border: 6px solid var(--white);
+    border-radius: 14px;
+}
+
+/* Remove old slanted separators */
+.hero-image-1::after,
+.hero-image-2::after { content: none; }
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: relative;
+    z-index: 3;
+    /* counter-skew to keep photo upright */
+    transform: skewX(12deg) scale(1.06);
+}
+
+.hero-cta {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--hunyadi-yellow);
+    color: var(--black-olive);
+    display: inline-block;
+    white-space: nowrap;
+    padding: 10px 18px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 16px;
+    box-shadow: 0 15px 30px rgba(240, 181, 81, 0.3);
+    animation: pulse 2s infinite;
+    z-index: 5;
+    border: 2px solid var(--white);
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+}
+
+@keyframes pulse {
+    0% { transform: translateX(-50%) scale(1); }
+    50% { transform: translateX(-50%) scale(1.05); }
+    100% { transform: translateX(-50%) scale(1); }
+}
+
+/* Featured Trips Section */
+.featured-trips {
+    padding: 60px 40px;
+    background: var(--white);
+}
+
+.featured-trips h2 {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--black-olive);
+    margin-bottom: 40px;
+    text-align: left;
+}
+
+.trips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.trip-card {
+    background: var(--white);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(53, 57, 54, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid var(--seasalt);
+}
+
+.trip-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(53, 57, 54, 0.15);
+}
+
+.trip-image {
+    height: 200px;
+    overflow: hidden;
+}
+
+.trip-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.trip-card:hover .trip-image img {
+    transform: scale(1.1);
+}
+
+.trip-content {
+    padding: 20px;
+}
+
+.trip-content h3 {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--black-olive);
+    margin-bottom: 10px;
+}
+
+.trip-content p {
+    color: var(--raw-umber);
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.trip-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.duration {
+    display: flex;
+    align-items: center;
+    color: var(--raw-umber);
+    font-size: 14px;
+}
+
+.duration i {
+    margin-right: 5px;
+}
+
+.price {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--verdigris);
+}
+
+.explore-btn {
+    width: 100%;
+    background: var(--verdigris);
+    color: var(--white);
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.explore-btn:hover {
+    background: var(--teal);
+}
+
+/* How It Works Section */
+.how-it-works {
+    padding: 60px 40px;
+    background: var(--seasalt);
+}
+
+.how-it-works h2 {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--black-olive);
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+}
+
+.step {
+    text-align: center;
+}
+
+.step-icon {
+    width: 80px;
+    height: 80px;
+    background: var(--verdigris);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    color: var(--white);
+    font-size: 24px;
+}
+
+.step h3 {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--black-olive);
+    margin-bottom: 15px;
+}
+
+.step p {
+    color: var(--raw-umber);
+    line-height: 1.6;
+}
+
+/* Destinations Section */
+.destinations {
+    padding: 60px 40px;
+    background: var(--white);
+}
+
+.destinations h2 {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--black-olive);
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.destinations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.destination-card {
+    position: relative;
+    height: 200px;
+    border-radius: 15px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.destination-card:hover {
+    transform: scale(1.05);
+}
+
+.destination-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.destination-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    color: white;
+    padding: 20px;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.destination-card:hover .destination-overlay {
+    transform: translateY(0);
+}
+
+.destination-overlay h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.destination-overlay p {
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+/* Stories Section */
+.stories {
+    padding: 60px 40px;
+    background: var(--seasalt);
+}
+
+.stories h2 {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--black-olive);
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.stories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.story-card {
+    background: var(--white);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(53, 57, 54, 0.1);
+    transition: transform 0.3s ease;
+    border: 1px solid var(--seasalt);
+}
+
+.story-card:hover {
+    transform: translateY(-5px);
+}
+
+.story-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.story-content {
+    padding: 20px;
+}
+
+.story-content h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--black-olive);
+    margin-bottom: 10px;
+}
+
+.story-content p {
+    color: var(--raw-umber);
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.story-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    color: var(--raw-umber);
+}
+
+/* Footer */
+.footer {
+    background: var(--black-olive);
+    color: var(--white);
+    padding: 40px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.footer-section h3,
+.footer-section h4 {
+    margin-bottom: 15px;
+    color: var(--verdigris);
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 8px;
+}
+
+.footer-section a {
+    color: var(--seasalt);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section a:hover {
+    color: var(--verdigris);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid var(--caribbean-current);
+    color: var(--seasalt);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        margin: 10px;
+        border-radius: 10px;
+    }
+    
+    .header {
+        padding: 15px 20px;
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .nav {
+        gap: 20px;
+    }
+    
+    .hero {
+        height: 300px;
+    }
+    
+    .hero-cta {
+        font-size: 16px;
+        padding: 12px 20px;
+    }
+    
+    .featured-trips,
+    .how-it-works,
+    .destinations,
+    .stories {
+        padding: 40px 20px;
+    }
+    
+    .trips-grid,
+    .destinations-grid,
+    .stories-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .steps {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .footer {
+        padding: 30px 20px;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-images {
+        flex-direction: column;
+    }
+    
+    .hero-image {
+        height: 100px;
+    }
+    
+    .hero {
+        height: 300px;
+    }
+    
+    .logo {
+        font-size: 20px;
+    }
+    
+    .nav {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+

@@ -1,4 +1,5 @@
 <?php
+session_start();
 include '../includes/db_connect.php';
 
 // get form values
@@ -11,7 +12,11 @@ $created_at = date('Y-m-d H:i:s');
 $stmt = $conn->prepare("INSERT INTO users (name, email, password, created_at) VALUES (?, ?, ?, ?)");
 $stmt->bind_param("ssss", $name, $email, $password, $created_at);
 if ($stmt->execute()) {
-    echo "Signup successful. <a href='../src/login.php'>Login here</a>.";
+    $_SESSION['signup_success'] = "Signup successfull! Please login with your credentials.";
+    header("Location: ../src/signup.php");
+    exit();
 } else {
-    echo "Error: " . $stmt->error;
+    $_SESSION['signup_error'] = "Email already registered. Please use a different email.";
+    header("Location: ../src/signup.php");
+    exit();
 }
