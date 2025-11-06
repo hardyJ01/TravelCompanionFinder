@@ -254,6 +254,44 @@ document.addEventListener('DOMContentLoaded', function() {
         this.style.background = '#15AEAE';
         this.style.transform = 'scale(1)';
     });
+
+    // Notifications dropdown 
+    const notifButton = document.getElementById('notifButton');
+    const notifDropdown = document.getElementById('notifDropdown');
+    const notifBadge = document.getElementById('notifBadge');
+
+    function hideDropdown() {
+        if (notifDropdown) notifDropdown.style.display = 'none';
+        if (notifButton) notifButton.setAttribute('aria-expanded', 'false');
+    }
+
+    if (notifButton && notifDropdown) {
+        notifButton.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const isOpen = notifDropdown.style.display === 'block';
+            notifDropdown.style.display = isOpen ? 'none' : 'block';
+            notifButton.setAttribute('aria-expanded', String(!isOpen));
+        });
+
+        document.addEventListener('click', function(e) {
+            if (!notifDropdown.contains(e.target) && e.target !== notifButton) {
+                hideDropdown();
+            }
+        });
+    }
+
+    
+
+    // Show login success toast if present
+    const loginToast = document.getElementById('login-toast');
+    if (loginToast) {
+        // Defer to next frame so CSS transitions apply
+        requestAnimationFrame(() => loginToast.classList.add('toast-show'));
+        setTimeout(() => {
+            loginToast.classList.remove('toast-show');
+            setTimeout(() => loginToast.remove(), 300);
+        }, 2500);
+    }
 });
 
 // Function to handle trip exploration (called from PHP)
@@ -349,4 +387,3 @@ function lazyLoadImages() {
 
 // Initialize lazy loading when DOM is ready
 document.addEventListener('DOMContentLoaded', lazyLoadImages);
-

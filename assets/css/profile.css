@@ -1,10 +1,3 @@
-/* Vibrant & Adventurous Profile Page Stylesheet
-   Primary Color (Teal): #00BCD4
-   Secondary Color (Coral): #FF7B54
-   Neutral Colors: #f8f9fa (light gray), #ffffff (white), #333333 (dark charcoal)
-*/
-
-/* General Body & Font Styles */
 body {
     font-family: 'Poppins', sans-serif; /* A clean, modern font */
     /* Updated background with a subtle gradient */
@@ -158,4 +151,51 @@ body {
     transform: scale(1.05);
 }
 
+/* --- CSS for "My Trips" Section --- */
+
+.card-body h5.trips-section-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #00A9A3; /* Match theme teal */
+    margin-top: 0.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.card-body h5.trips-section-title:first-of-type {
+    margin-top: 0; /* No top margin for the first title */
+}
+
+.trip-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem; /* Space between trip items */
+}
+
+/* Style for individual trip items */
+p.trip-item {
+    font-size: 1rem;
+    padding: 0.75rem 0;
+    border-bottom: 1px dotted #e0e0e0;
+    margin-bottom: 0;
+}
+p.trip-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+/* Style for completed trips */
+p.trip-item.completed {
+    opacity: 0.7; /* Make completed trips slightly faded */
+}
+
+p.trip-item.completed b {
+    color: #6c757d; /* Gray out the destination text */
+}
+
+/* Divider between active and completed */
+hr.trip-divider {
+    margin: 1.5rem 0;
+    border: 0;
+    border-top: 1px solid #e0e0e0;
+}
 
